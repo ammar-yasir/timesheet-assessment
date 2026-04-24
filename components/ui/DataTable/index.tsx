@@ -6,6 +6,8 @@ export function DataTable<T>({
   data,
   onSort,
   noDataText = "No content found.",
+  sortBy,
+  sortOrder,
 }: DataTableProps<T>) {
   return (
     <div className="rounded-10 overflow-auto">
@@ -19,6 +21,8 @@ export function DataTable<T>({
                 title={col.label}
                 isSortable={col.sortable}
                 onSort={onSort}
+                sortBy={sortBy}
+                sortOrder={sortOrder}
               />
             ))}
           </tr>

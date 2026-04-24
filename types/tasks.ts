@@ -11,14 +11,13 @@ export interface TaskItem {
 export interface AddTaskModalProps {
   isOpen: boolean;
   setOpen: (open: boolean) => void;
-}
-
+};
 
 export interface EditTaskModalProps {
   isOpen: boolean;
   setOpen: (open: boolean) => void;
   task: TaskItem;
-}
+};
 
 export type TaskListResponse = {
   data: TaskItem[];
@@ -33,4 +32,4 @@ export type TaskFormProps = {
 
 export interface TimesheetItemProps {
   task: TaskItem;
-}
+};

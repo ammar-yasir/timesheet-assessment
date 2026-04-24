@@ -9,7 +9,7 @@ const Header = () => {
           <h3 className="font-medium text-2xl tracking-normal leading-normal align-middle">
             ticktock
           </h3>
-          <Link href="/app/dashboard">
+          <Link href="/dashboard">
             <h6 className="text-sm text-gray-900 font-medium leading-normal tracking-normal align-middle">
               Timesheets
             </h6>

@@ -1,12 +1,6 @@
 "use client";
 import Select from "@/components/ui/Select";
-
-const limitOptions = [
-  { label: "5 per page", value: 5 },
-  { label: "10 per page", value: 10 },
-  { label: "20 per page", value: 20 },
-  { label: "50 per page", value: 50 },
-];
+import { PAGE_LIMIT_OPTIONS } from "@/constants";
 
 const PageLimit = ({
   value,
@@ -22,7 +16,7 @@ const PageLimit = ({
   };
   return (
     <Select
-      options={limitOptions}
+      options={PAGE_LIMIT_OPTIONS}
       value={value}
       onChange={handleChange}
       selectClassName="min-w-29.5 bg-gray-50 border border-gray-200 text-gray-800 font-medium text-sm rounded-xl px-3 py-2"

@@ -1,5 +1,6 @@
 import ReactPaginate from "react-paginate";
 import PageLimit from "./PageLimit";
+import { DEFAULT_PAGE_LIMIT } from "@/constants";
 
 type Props = {
   pageCount: number;
@@ -13,7 +14,7 @@ const Pagination = ({
   pageCount,
   onPageChange,
   selectedPage,
-  customLimit,
+  customLimit = DEFAULT_PAGE_LIMIT,
   setCustomLimit,
 }: Props) => (
   <div className="flex flex-col gap-4 lg:flex-row justify-between items-center">

@@ -1,5 +1,6 @@
 "use client";
 import MenuDropdown from "@/components/ui/MenuDropdown";
+import { ROUTES } from "@/constants";
 import { useSession, signOut } from "next-auth/react";
 
 const ProfileDropdown = () => {
@@ -10,9 +11,12 @@ const ProfileDropdown = () => {
       menuIcon="chevron"
       actions={[
         {
+          label: data?.user?.email || "demo@demo.com",
+        },
+        {
           label: "Logout",
           onClick: () => {
-            signOut({ callbackUrl: "/auth/login" });
+            signOut({ callbackUrl: ROUTES.LOGIN });
           },
         },
       ]}

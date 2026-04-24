@@ -1,20 +1,6 @@
 "use client";
 import Select from "@/components/ui/Select";
-
-const statuses = [
-  {
-    label: "INCOMPLETE",
-    value: "incomplete",
-  },
-  {
-    label: "COMPLETED",
-    value: "completed",
-  },
-  {
-    label: "MISSING",
-    value: "missing",
-  },
-];
+import { STATUS_FILTER_OPTIONS } from "@/constants";
 
 const FilterDropdown = ({
   value,
@@ -30,7 +16,7 @@ const FilterDropdown = ({
   };
   return (
     <Select
-      options={statuses}
+      options={STATUS_FILTER_OPTIONS}
       value={value}
       onChange={handleChange}
       selectClassName="w-35 h-10.5 bg-white border border-gray-300 text-gray-500 font-normal text-sm rounded-lg leading-tight tracking-normal p-3"

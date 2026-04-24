@@ -25,7 +25,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
 
   const { submit, isPending } = useSubmitTask(mode, taskId);
 
-  const hours = watch("hours");
+  const hoursLogged = watch("hoursLogged");
 
   const onSubmit = async (data: TaskFormValues) => {
     await submit(data);
@@ -104,26 +104,27 @@ const TaskForm: React.FC<TaskFormProps> = ({
           <div className="flex w-fit border border-gray-300 rounded-lg overflow-hidden">
             <button
               type="button"
-              onClick={() => setValue("hours", Math.max(1, hours - 1))}
+              onClick={() => setValue("hoursLogged", Math.max(1, hoursLogged - 1))}
               className="p-2 px-3 bg-gray-100 border-r border-gray-300 cursor-pointer"
             >
               <Minus className="w-2.5 h-2.5 text-gray-900" />
             </button>
             <input
               type="text"
-              {...register("hours", { valueAsNumber: true })}
+              value={hoursLogged || 1}
+              {...register("hoursLogged", { valueAsNumber: true })}
               className="w-14 text-center bg-transparent outline-none font-normal text-sm text-gray-500 px-4 py-2"
             />
             <button
               type="button"
-              onClick={() => setValue("hours", hours + 1)}
+              onClick={() => setValue("hoursLogged", hoursLogged + 1)}
               className="p-2 px-3 bg-gray-100 border-l border-gray-300 cursor-pointer"
             >
               <Plus className="w-2.5 h-2.5 text-gray-900" />
             </button>
           </div>
-          {errors.hours && (
-            <p className="text-red-500 text-xs">{errors.hours.message}</p>
+          {errors.hoursLogged && (
+            <p className="text-red-500 text-xs">{errors.hoursLogged.message}</p>
           )}
         </div>
       </div>

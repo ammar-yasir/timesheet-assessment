@@ -1,6 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { ReactQueryProvider } from "./providers";
+import { ReactQueryProvider } from "@/components/providers/ReactQueryProvider";
 
 export default function MainLayout({
   children,
