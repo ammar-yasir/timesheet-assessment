@@ -50,7 +50,7 @@ export const useTableQueryState = ({
   const toggleSort = (field: string) => {
     if (field === sortBy) {
       updateParams({
-        order: order === "asc" ? "desc" : "asc",
+        order: sortOrder === "asc" ? "desc" : "asc",
         page: 1,
       });
     } else {
