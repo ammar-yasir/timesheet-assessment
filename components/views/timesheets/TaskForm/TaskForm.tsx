@@ -5,14 +5,8 @@ import Select from "@/components/ui/Select";
 import { useTaskForm } from "@/hooks/timesheet/useTaskForm";
 import { useSubmitTask } from "@/hooks/timesheet/useSubmitTask";
 import { TaskFormValues } from "@/validators/tasks";
+import { TaskFormProps } from "@/types/tasks";
 import { projects, taskTypes } from "../data/taskOptions";
-
-type TaskFormProps = {
-  setOpen: (open: boolean) => void;
-  initialData?: TaskFormValues;
-  taskId?: number;
-  mode?: "create" | "edit";
-};
 
 const TaskForm: React.FC<TaskFormProps> = ({
   setOpen,

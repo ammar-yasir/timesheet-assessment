@@ -1,19 +1,7 @@
 import { Modal } from "@/components/ui/Modal";
-import TaskForm from "../TaskForm/TaskForm";
-
 import { TaskFormValues } from "@/validators/tasks";
-
-interface EditTaskModalProps {
-  isOpen: boolean;
-  setOpen: (open: boolean) => void;
-  task: {
-    id: number;
-    name: string;
-    description: string;
-    projectName: string;
-    hoursLogged: number;
-  };
-}
+import { EditTaskModalProps } from "@/types/tasks";
+import TaskForm from "../TaskForm/TaskForm";
 
 export default function EditTaskModal({
   isOpen,

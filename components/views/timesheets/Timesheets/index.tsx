@@ -5,7 +5,7 @@ import DataTable from "@/components/ui/DataTable";
 import Pagination from "@/components/shared/Pagination/Pagination";
 import TableSkeleton from "@/components/ui/SkeletonLoading/TableSkeleton";
 import { useTableQueryState } from "@/hooks/ui/useTableQueryState";
-import { Status, TaskStatusMap, Timesheet } from "@/types/timesheets";
+import { Status, TimesheetStatusMap, Timesheet } from "@/types/timesheets";
 import { Column } from "@/components/ui/DataTable/DataTable.types";
 import FilterDropdown from "@/components/shared/FilterDropdown";
 import { useTimesheets } from "@/store/timesheets/queries";
@@ -22,7 +22,7 @@ const columns: Column<Timesheet>[] = [
     label: "Status",
     sortable: true,
     render: (status: Status) => (
-      <Badge className="uppercase" label={status} variant={TaskStatusMap[status]} />
+      <Badge className="uppercase" label={status} variant={TimesheetStatusMap[status]} />
     ),
   },
   {
