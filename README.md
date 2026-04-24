@@ -1,8 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+# Timesheet SaaS App (Assessment)
 ## Getting Started
 
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
 First, run the development server:
+
+## Setup Instructions
+- Clone the repo: `git clone <repo-url>`
+- Install dependencies: `npm install`
+- Add env variables:
+```bash
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_secret (sample ENV file mentions how to create it)
+```
+- Run dev server:
 
 ```bash
 npm run dev
@@ -13,24 +24,32 @@ pnpm dev
 # or
 bun dev
 ```
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Frameworks / Libraries Used
+- Next.js (App Router)
+- TypeScript
+- NextAuth (Credentials Auth)
+- React Hook Form + Zod
+- TanStack React Query
+- Tailwind CSS
+- Radix UI
+- Lucide Icons
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Assumptions / Notes
+- Mock data used for timesheets/tasks (no DB)
+- Auth handled via **NextAuth** credentials flow
+- React Query used for client-side caching + mutations
+- Optimistic updates implemented for task Delete
+- App Router with **Server + Client component** separation
+- **Middleware** used for route protection
+- A bit of responsiveness left on Modal
+- TanStack Table could be used instead of custom DataTable
+- Other folder structure based on **features** could be used as well to ensure separation of concerns
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Time Spent
+- Work was done in multiple sessions (2-3), no idea about exact time
+- Overall estimate: ~8–10 hours total development time
