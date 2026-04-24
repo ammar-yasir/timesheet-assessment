@@ -1,20 +1,19 @@
 import { NextResponse } from "next/server";
 import { mockTimesheets } from "../../route";
 
-export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
-  const timesheetId = (await params).id;
+type Context = {
+  params: Promise<{ id: string }>;
+};
 
-  const timesheet = mockTimesheets.find(
-    (t) => t.id === Number(timesheetId)
-  );
+export async function GET(_: Request, context: Context ) {
+  const { id: timesheetId } = await context.params;
+
+  const timesheet = mockTimesheets.find((t) => t.id === Number(timesheetId));
 
   if (!timesheet) {
     return NextResponse.json(
       { message: "Timesheet not found" },
-      { status: 404 }
+      { status: 404 },
     );
   }
 
@@ -25,19 +24,17 @@ export async function GET(
 
 export async function POST(
   req: Request,
-  { params }: { params: { id: string } }
+  context: Context,
 ) {
-  const timesheetId = (await params).id;
+  const { id: timesheetId } = await context.params;
   const body = await req.json();
 
-  const timesheet = mockTimesheets.find(
-    (t) => t.id === Number(timesheetId)
-  );
+  const timesheet = mockTimesheets.find((t) => t.id === Number(timesheetId));
 
   if (!timesheet) {
     return NextResponse.json(
       { message: "Timesheet not found" },
-      { status: 404 }
+      { status: 404 },
     );
   }
 
@@ -59,32 +56,25 @@ export async function POST(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } }
+  context: Context
 ) {
-  const timesheetId = (await params).id;
+  const { id: timesheetId } = await context.params;
   const { searchParams } = new URL(req.url);
   const taskId = Number(searchParams.get("taskId"));
 
-  const timesheet = mockTimesheets.find(
-    (t) => t.id === Number(timesheetId)
-  );
+  const timesheet = mockTimesheets.find((t) => t.id === Number(timesheetId));
 
   if (!timesheet) {
     return NextResponse.json(
       { message: "Timesheet not found" },
-      { status: 404 }
+      { status: 404 },
     );
   }
 
-  const taskIndex = timesheet.tasks.findIndex(
-    (task) => task.id === taskId
-  );
+  const taskIndex = timesheet.tasks.findIndex((task) => task.id === taskId);
 
   if (taskIndex === -1) {
-    return NextResponse.json(
-      { message: "Task not found" },
-      { status: 404 }
-    );
+    return NextResponse.json({ message: "Task not found" }, { status: 404 });
   }
 
   const deletedTask = timesheet.tasks.splice(taskIndex, 1);
@@ -97,41 +87,28 @@ export async function DELETE(
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  context: Context
 ) {
-  const timesheetId = (await params).id;
-  console.log("TimesheetID PATCH", timesheetId)
+  const { id: timesheetId } = await context.params;
   const { searchParams } = new URL(req.url);
   const taskId = Number(searchParams.get("taskId"));
-  console.log("taskId PATCH", taskId)
 
   const body = await req.json();
 
-  const timesheet = mockTimesheets.find(
-    (t) => t.id === Number(timesheetId)
-  );
+  const timesheet = mockTimesheets.find((t) => t.id === Number(timesheetId));
 
   if (!timesheet) {
     return NextResponse.json(
       { message: "Timesheet not found" },
-      { status: 404 }
+      { status: 404 },
     );
   }
 
-  console.log("Timesheet FOUND", timesheet.tasks)
-
-  const task = timesheet.tasks.find(
-    (task) => task.id === taskId
-  );
+  const task = timesheet.tasks.find((task) => task.id === taskId);
 
   if (!task) {
-    return NextResponse.json(
-      { message: "Task not found" },
-      { status: 404 }
-    );
+    return NextResponse.json({ message: "Task not found" }, { status: 404 });
   }
-
-  console.log("TASK FOUND")
 
   // Update fields (partial update support)
   task.name = body.name ?? task.name;
