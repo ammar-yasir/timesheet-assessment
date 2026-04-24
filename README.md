@@ -25,8 +25,13 @@ pnpm dev
 bun dev
 ```
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
----
 
+
+## Credentials
+    - Email: test@test.com
+    - Password: 12345678
+
+---
 ## Frameworks / Libraries Used
 - Next.js (App Router)
 - TypeScript
