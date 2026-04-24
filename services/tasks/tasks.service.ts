@@ -1,9 +1,9 @@
 import { apiClient } from "@/lib/apiClient";
-import { TaskItem } from "@/types/tasks";
+import { TaskItem, TaskListResponse } from "@/types/tasks";
 
 export const taskService = {
-  getTimesheetTasks: async (timesheetId: string) => {
-    const response = await apiClient(
+  getTimesheetTasks: async (timesheetId: string): Promise<TaskListResponse> => {
+    const response = await apiClient<TaskListResponse>(
       `/timesheets/${timesheetId}/tasks`,
       {},
       "Failed to fetch tasks",

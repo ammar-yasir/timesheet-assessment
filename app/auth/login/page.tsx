@@ -1,5 +1,4 @@
 "use client";
-
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,7 +25,7 @@ export default function LoginPage() {
     const result = await login(data.email, data.password);
 
     if (result.success) {
-      router.push("/dashboard");
+      router.push("/app/dashboard");
     }
   };
 
@@ -37,7 +36,7 @@ export default function LoginPage() {
       <div className="w-full md:w-1/2 flex flex-col gap-5 justify-center px-18">
         <h3 className="font-bold text-xl text-gray-900">Welcome back</h3>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
           <Input
             id="email"
             label="Email"

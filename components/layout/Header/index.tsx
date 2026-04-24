@@ -16,7 +16,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <ProfileDropdown userName="John Doe" />
+        <ProfileDropdown />
       </div>
     </header>
   );

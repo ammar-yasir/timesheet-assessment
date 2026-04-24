@@ -5,3 +5,7 @@ export interface TaskItem {
   hoursLogged: number;
   projectName: string;
 };
+
+export type TaskListResponse = {
+  data: TaskItem[];
+};
