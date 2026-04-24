@@ -1,10 +1,7 @@
 import { FC } from "react";
-import { TaskItem } from "@/types/tasks";
+import { TimesheetItemProps } from "@/types/tasks";
 import { ActionMenu } from "./ActionMenu";
 
-interface TimesheetItemProps {
-  task: TaskItem;
-}
 
 const TimesheetItem: FC<TimesheetItemProps> = ({ task }) => {
   return (

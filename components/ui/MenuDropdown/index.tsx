@@ -1,12 +1,7 @@
 "use client";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { ChevronDown, Ellipsis } from "lucide-react";
-
-export type ActionItem = {
-  label: string;
-  onClick?: () => void;
-  className?: string;
-};
+import { ActionItem } from "./MenuDropdown.types";
 
 type MenuProps = {
   actions: ActionItem[];

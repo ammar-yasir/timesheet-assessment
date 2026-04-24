@@ -53,6 +53,7 @@ bun dev
 - **Middleware** used for route protection
 - A bit of responsiveness left on Modal
 - TanStack Table could be used instead of custom DataTable
+- As the app grows, we can use Zustand/Redux for state management
 - Other folder structure based on **features** could be used as well to ensure separation of concerns
 
 ## Time Spent

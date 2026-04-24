@@ -1,11 +1,7 @@
 
 import { Modal } from "@/components/ui/Modal";
+import { AddTaskModalProps } from "@/types/tasks";
 import TaskForm from "../TaskForm/TaskForm";
-
-interface AddTaskModalProps {
-  isOpen: boolean;
-  setOpen: (open: boolean) => void;
-}
 
 export default function AddTaskModal({ isOpen, setOpen }: AddTaskModalProps) {
   return (

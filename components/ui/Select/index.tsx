@@ -1,19 +1,7 @@
 "use client";
 import React from "react";
 import { ChevronDown } from "lucide-react";
-
-interface Option {
-  label: string;
-  value: string | number;
-}
-
-interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  options: Option[];
-  label?: string | React.ReactNode;
-  selectClassName?: string;
-  chevronColor?: string;
-  defaultOptionLabel?: string;
-}
+import { SelectProps } from "./Select.types";
 
 const Select: React.FC<SelectProps> = ({
   value,

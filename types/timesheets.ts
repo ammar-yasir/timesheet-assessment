@@ -8,7 +8,7 @@ export interface Timesheet {
   status: Status;
 };
 
-export const TaskStatusMap: Record<Status, BadgeVariant> = {
+export const TimesheetStatusMap: Record<Status, BadgeVariant> = {
   completed: "success",
   incomplete: "warning",
   missing: "error",
