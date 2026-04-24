@@ -1,5 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { ROUTES } from "@/constants";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -32,7 +33,7 @@ export const authOptions: NextAuthOptions = {
   },
 
   pages: {
-    signIn: "/auth/login",
+    signIn: ROUTES.LOGIN,
   },
 
   callbacks: {

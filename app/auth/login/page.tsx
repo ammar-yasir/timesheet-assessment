@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/Checkbox/Checkbox";
 import { loginSchema, type LoginFormInputs } from "@/validators/auth";
 
 import { useLogin } from "@/hooks/auth/useLogin";
+import { ROUTES } from "@/constants";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -25,7 +26,7 @@ export default function LoginPage() {
     const result = await login(data.email, data.password);
 
     if (result.success) {
-      router.push("/app/dashboard");
+      router.push(ROUTES.DASHBOARD);
     }
   };
 

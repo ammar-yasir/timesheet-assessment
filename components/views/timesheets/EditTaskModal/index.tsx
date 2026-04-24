@@ -1,5 +1,4 @@
 import { Modal } from "@/components/ui/Modal";
-import { TaskFormValues } from "@/validators/tasks";
 import { EditTaskModalProps } from "@/types/tasks";
 import TaskForm from "../TaskForm/TaskForm";
 
@@ -8,13 +7,6 @@ export default function EditTaskModal({
   setOpen,
   task,
 }: EditTaskModalProps) {
-  const initialData: TaskFormValues = {
-    name: task.name,
-    description: task.description,
-    projectName: task.projectName,
-    hours: task.hoursLogged,
-  };
-
   return (
     <Modal
       isOpen={isOpen}
@@ -23,7 +15,7 @@ export default function EditTaskModal({
     >
       <TaskForm
         setOpen={setOpen}
-        initialData={initialData}
+        initialData={task}
         taskId={task.id}
         mode="edit"
       />

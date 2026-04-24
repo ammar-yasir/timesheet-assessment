@@ -13,7 +13,7 @@ const MenuDropdown = ({ actions, label, menuIcon = "chevron" }: MenuProps) => {
   return (
     <DropdownMenu.Root>
       {/* Trigger */}
-      <DropdownMenu.Trigger className="flex items-center gap-1 outline-0">
+      <DropdownMenu.Trigger className="flex items-center gap-1 outline-0 cursor-pointer">
         {label && (
           <span className="font-medium text-base text-gray-500 leading-normal">
             {label}
@@ -21,7 +21,7 @@ const MenuDropdown = ({ actions, label, menuIcon = "chevron" }: MenuProps) => {
         )}
 
         {menuIcon === "ellipsis" ? (
-          <Ellipsis className="ml-1.5 w-4 cursor-pointer" color="#6B7280" />
+          <Ellipsis className="ml-1.5 w-4" color="#6B7280" />
         ) : (
           <ChevronDown className="w-3 h-3" color="#6B7280" />
         )}
@@ -31,7 +31,7 @@ const MenuDropdown = ({ actions, label, menuIcon = "chevron" }: MenuProps) => {
       <DropdownMenu.Content
         align="end"
         sideOffset={6}
-        className="w-28 bg-white py-1 shadow-dropdown rounded-md"
+        className="min-w-28 bg-white py-1 shadow-dropdown rounded-md"
       >
         {actions.map((action, index) => (
           <DropdownMenu.Item

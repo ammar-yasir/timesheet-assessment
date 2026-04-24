@@ -7,15 +7,15 @@ export const useTimesheets = (
   queryParams: QueryParams,
   setTotalItems: (totalItems: number) => void,
 ) => {
-  const { skip, limit, sortBy, order, status } = queryParams;
+  const { skip, limit, sortBy, sortOrder, status } = queryParams;
   return useQuery<Timesheet[]>({
-    queryKey: ["timesheets", skip, limit, sortBy, order, status],
+    queryKey: ["timesheets", skip, limit, sortBy, sortOrder, status],
     queryFn: async () => {
       const res = await timesheetService.getTimesheets({
         skip,
         limit,
         sortBy,
-        order,
+        sortOrder,
         status,
       });
       setTotalItems(res.total);

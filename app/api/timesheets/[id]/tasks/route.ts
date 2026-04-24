@@ -114,7 +114,7 @@ export async function PATCH(
   task.name = body.name ?? task.name;
   task.description = body.description ?? task.description;
   task.projectName = body.projectName ?? task.projectName;
-  task.hoursLogged = body.hours ?? task.hoursLogged;
+  task.hoursLogged = body.hoursLogged ?? task.hoursLogged;
 
   return NextResponse.json({
     message: "Task updated successfully",

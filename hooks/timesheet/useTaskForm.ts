@@ -9,7 +9,7 @@ export const useTaskForm = (initialData?: TaskFormValues): UseFormReturn<TaskFor
     defaultValues: initialData || {
       name: "",
       description: "",
-      hours: 1,
+      hoursLogged: 1,
       projectName: "",
     },
   });

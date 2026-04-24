@@ -29,7 +29,7 @@ const columns: Column<Timesheet>[] = [
     key: "actions",
     label: "Actions",
     render: (_, record: Timesheet) => (
-      <Link href={`/app/dashboard/timesheets/${record.id}`} className="text-primary-600 cursor-pointer">
+      <Link href={`/dashboard/timesheets/${record.id}`} className="text-primary-600 cursor-pointer">
         View
       </Link>
     ),
@@ -44,7 +44,7 @@ const Timesheets = () => {
     limit,
     totalPages,
     sortBy,
-    order,
+    sortOrder,
     changeLimit,
     handlePageChange,
     toggleSort,
@@ -59,7 +59,7 @@ const Timesheets = () => {
       skip,
       limit,
       sortBy,
-      order,
+      sortOrder,
       status,
     },
     setTotalItems,
@@ -78,6 +78,8 @@ const Timesheets = () => {
             toggleSort(key);
           }}
           noDataText="No timesheets found."
+          sortBy={sortBy}
+          sortOrder={sortOrder}
         />
       ) : null}
       {timesheets?.length && totalPages ? (

@@ -1,18 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-
-type SortOrder = "asc" | "desc";
-
-interface UseTableQueryStateOptions {
-  defaultSortBy?: string;
-  defaultLimit?: number;
-}
+import { DEFAULT_PAGE_LIMIT } from "@/constants";
+import { SortOrder, UseTableQueryOptions } from "@/types/pagination";
 
 export const useTableQueryState = ({
   defaultSortBy = "id",
-  defaultLimit = 5,
-}: UseTableQueryStateOptions) => {
+  defaultLimit = DEFAULT_PAGE_LIMIT,
+}: UseTableQueryOptions) => {
   const searchParams = useSearchParams();
   const [totalItems, setTotalItems] = useState<number | null>(null);
 
@@ -20,7 +15,7 @@ export const useTableQueryState = ({
   const page = Number(searchParams.get("page") || 1);
   const limit = Number(searchParams.get("limit") || defaultLimit);
   const sortBy = (searchParams.get("sortBy")) || defaultSortBy;
-  const order = (searchParams.get("order") as SortOrder) || "desc";
+  const sortOrder = (searchParams.get("order") as SortOrder) || "desc";
   const searchQuery = searchParams.get("searchQuery") || "";
   const status = searchParams.get("status") || "";
 
@@ -29,7 +24,7 @@ export const useTableQueryState = ({
     totalItems !== null ? Math.ceil(totalItems / limit) : null;
 
   // Helper to update params safely
-  const updateParams = (updates: Record<string, any>) => {
+  const updateParams = (updates: Record<string, string | number>) => {
     const newParams = new URLSearchParams(searchParams);
 
     Object.entries(updates).forEach(([key, value]) => {
@@ -40,7 +35,6 @@ export const useTableQueryState = ({
       }
     });
 
-    // router.push(`?${newParams.toString()}`);
     window.history.replaceState(null, "", `?${newParams.toString()}`);
   };
 
@@ -56,7 +50,7 @@ export const useTableQueryState = ({
   const toggleSort = (field: string) => {
     if (field === sortBy) {
       updateParams({
-        order: order === "asc" ? "desc" : "asc",
+        order: sortOrder === "asc" ? "desc" : "asc",
         page: 1,
       });
     } else {
@@ -72,7 +66,6 @@ export const useTableQueryState = ({
   const updateSearch = (value: string) =>
     updateParams({ q: value, page: 1, order: "asc"  });
 
-  
   const resetTable = () => {
       updateParams({});
   };
@@ -85,7 +78,7 @@ export const useTableQueryState = ({
     limit,
     skip,
     sortBy,
-    order,
+    sortOrder,
     searchQuery,
     status,
     totalPages,

@@ -1,3 +1,4 @@
+import { SortOrder } from "@/types/pagination";
 import type { ReactNode } from "react";
 
 export interface Column<T> {
@@ -14,6 +15,8 @@ export interface DataTableProps<T> {
   data: T[];
   onSort?: (key: string) => void;
   noDataText?: string;
+  sortBy?: string;
+  sortOrder?: SortOrder;
 }
 
 export interface TableHeaderProps {
@@ -21,4 +24,6 @@ export interface TableHeaderProps {
   title: string;
   onSort?: (key: string) => void;
   isSortable?: boolean;
+  sortBy?: string;
+  sortOrder?: SortOrder;
 }
