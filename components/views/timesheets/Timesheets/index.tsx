@@ -22,14 +22,22 @@ const columns: Column<Timesheet>[] = [
     label: "Status",
     sortable: true,
     render: (status: Status) => (
-      <Badge className="uppercase" label={status} variant={TimesheetStatusMap[status]} />
+      <Badge
+        id={status}
+        className="uppercase"
+        label={status}
+        variant={TimesheetStatusMap[status]}
+      />
     ),
   },
   {
     key: "actions",
     label: "Actions",
     render: (_, record: Timesheet) => (
-      <Link href={`/dashboard/timesheets/${record.id}`} className="text-primary-600 cursor-pointer">
+      <Link
+        href={`/dashboard/timesheets/${record.id}`}
+        className="text-primary-600 cursor-pointer"
+      >
         View
       </Link>
     ),

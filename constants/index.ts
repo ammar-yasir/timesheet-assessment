@@ -3,6 +3,8 @@ import { SelectOption } from "@/components/ui/Select/Select.types";
 
 export const HOURS_PER_WEEK = 40;
 export const DEFAULT_PAGE_LIMIT = 5;
+// API Base URL
+export const API_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 // Page Limit Options
 export const PAGE_LIMIT_OPTIONS: SelectOption[] = [

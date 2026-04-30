@@ -4,11 +4,13 @@ import { BADGE_VARIANTS } from "@/constants";
 
 interface BadgeProps {
   label: string;
+  id?: string;
   variant?: BadgeVariant;
   className?: string;
 }
 
 const Badge: React.FC<BadgeProps> = ({
+  id,
   label,
   variant = "default",
   className = "",
@@ -17,7 +19,10 @@ const Badge: React.FC<BadgeProps> = ({
     "w-full h-5.5 px-2.5 py-0.5 rounded-md text-xs font-medium";
 
   return (
-    <span className={`${baseStyles} ${BADGE_VARIANTS[variant]} ${className}`}>
+    <span
+      data-testid={`badge-${id}`}
+      className={`${baseStyles} ${BADGE_VARIANTS[variant]} ${className}`}
+    >
       {label}
     </span>
   );
