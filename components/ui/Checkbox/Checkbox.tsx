@@ -10,6 +10,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           className="flex items-center gap-2 text-sm font-medium text-gray-500 align-middle"
         >
           <input
+            data-testid={`checkbox-${props.id}`}
             ref={ref}
             type="checkbox"
             className={`

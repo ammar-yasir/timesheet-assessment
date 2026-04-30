@@ -1,11 +1,11 @@
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+import { API_BASE_URL } from "@/constants";
 
 export async function apiClient<T>(
   endpoint: string,
   options: RequestInit = {},
   serverError?: string
 ): Promise<T> {
-  const url = `${baseUrl}/api${endpoint}`;
+  const url = `${API_BASE_URL}/api${endpoint}`;
 
   // Default headers (e.g., Content-Type)
   const headers = {

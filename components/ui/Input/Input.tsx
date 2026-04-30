@@ -12,6 +12,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {label}
         </label>
         <input
+          data-testid={`input-${props.id}`}
           ref={ref}
           className={`
             w-full h-10.5 px-4 py-3 border rounded-lg text-sm font-normal text-gray-900 leading-5 tracking-normal align-middle
